@@ -1,0 +1,31 @@
+{
+    "name": "drizzle",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "tsx src/index.ts",
+        "generate": "drizzle-kit generate",
+        "migrate": "drizzle-kit migrate"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "drizzle-orm": "^0.41.0",
+        "express": "^4.21.2",
+        "pg": "^8.14.1",
+        "typescript": "^5.8.2"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.1",
+        "@types/pg": "^8.11.11",
+        "drizzle-kit": "^0.30.6",
+        "drizzle-seed": "^0.3.1",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.19.3"
+    }
+}
