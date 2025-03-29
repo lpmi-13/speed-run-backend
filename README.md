@@ -26,7 +26,7 @@ npm run dev
 You should now be able to run
 
 ```bash
-curl localhost:3000/users | jq
+curl localhost:4000/users | jq
 ```
 
 and see a nice bunch of data coming back
