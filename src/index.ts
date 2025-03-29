@@ -44,6 +44,9 @@ async function startServer() {
         });
         console.log('Migrations completed successfully');
 
+        // drop all the data if it exists just to avoid conflicts when processes restart
+        await db.delete(usersTable);
+
         await seed(db, { usersTable });
 
         console.log('Database seeded with 10 users');
