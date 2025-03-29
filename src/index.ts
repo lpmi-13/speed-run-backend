@@ -1,6 +1,7 @@
 import express from 'express';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
+import { seed } from 'drizzle-seed';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -12,7 +13,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Database connection configuration
 const connectionString =
     process.env.DATABASE_URL ||
     'postgres://postgres:mypassword@localhost:5432/drizzle';
@@ -43,6 +43,10 @@ async function startServer() {
             migrationsFolder: path.join(__dirname, '../drizzle'),
         });
         console.log('Migrations completed successfully');
+
+        await seed(db, { usersTable });
+
+        console.log('Database seeded with 10 users');
 
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
