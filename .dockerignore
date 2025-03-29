@@ -1,0 +1,11 @@
+node_modules
+
+Dockerfile
+.dockerignore
+
+dist
+
+.git
+
+run-db.sh
+create-database.sql
